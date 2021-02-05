@@ -11,9 +11,7 @@ class Director:
         
 
     General Workflow:
-        get_inputs
-        do_updates
-        do_outputs
+
     """
     def __init__(self):
         self.letter = ''
@@ -37,9 +35,9 @@ class Director:
         Asks the user input
         """
         
-        dashes = self.word_processor.hidden_word
+        dashes = self.word_processor.set_hidden_word
         self.console.write(dashes)
-        jumper = update_chute
+        jumper = update_chute()
         
         self.console.write('')
         self.console.write('---------------')
@@ -53,6 +51,9 @@ class Director:
         This will adjust data based off of user's choices
 
         """
-        self.word_processor.get_word()
+        self.word_processor.check_input(self.letter)
+        if self.word_processor.check_complete == True:
+            self.console.write("Thanks for playing!")
+            self.keep_playing == False
         
 

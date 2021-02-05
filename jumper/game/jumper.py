@@ -9,7 +9,7 @@ class Jumper():
         """
         self.num_guesses = 0
         self.is_alive = True
-        self.chute =
+        self.chute = ''
 
     def update_chute(self):
         """
