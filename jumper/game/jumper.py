@@ -1,7 +1,15 @@
 
 
 class Jumper():
-    """
+    """Class that holds information regarding the jumper.
+
+    Stereotype:
+        ???
+
+    Attributes:
+        self.num_guesses (int): counts the number of times the user has guessed a letter.
+        self.is_alive (boolean): determines if the jumpe is still alive or not, based on how much chute is left.
+        self.chute (): holds the string to display the jumpers parachute.
     """
 
     def __init__(self):
@@ -9,15 +17,40 @@ class Jumper():
         """
         self.num_guesses = 0
         self.is_alive = True
-        self.chute = ''
+        self.head = 'O'
+        self.chute =['    ___',
+                     '  /     \ ',
+                     ' /_______\ ',
+                     ' \       / ',
+                     '  \     /  ',
+                     '   \   /',
+                     f'     {self.head}    ',
+                     '    /|\   ',
+                     '    / \   ']
 
-    def update_chute(self):
+    def update_chute(self, result):
         """
+        Updates the parachute each turn.
+        Updates the jumper head based self.is_alive boolean.
+
+        Args:
+            result (boolean): tells the update_chute whether or not the chute needs to be reduced. 
+                              If False, the chute is reduced by one line.
+                              If True, the chute is not changed
+        
+        Returns:
+            chute (list): each line of the chute
+
         """
+        # This is being used right now just to test the chute display
         for line in self.chute:
             print(line)
+
+        # TODO: If result is True, the chute doesn't change. If result is Fale, the chute is reduced by one line.
+
+        # TODO: If is_alive is True, self.head = 'O', otherwise, self.head = 'X'
 
 
 # # Test
 # jumper = Jumper()
-# jumper.update_chute()
+# jumper.update_chute(True)
