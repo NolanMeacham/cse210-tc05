@@ -15,7 +15,7 @@ class Word_Processor:
     """
     def get_word(self):
         words = []
-        with open('jumper\game\word_list.txt','r') as w:
+        with open('cse210-tc05/jumper/game/word_list.txt','r') as w:
             words = w.readlines()
         self.word_choice = words[random.randint(0,999)]
         self.word_choice = self.word_choice[:-1]
