@@ -1,5 +1,3 @@
-
-
 class Jumper():
     """Class that holds information regarding the jumper.
 
@@ -18,15 +16,16 @@ class Jumper():
         self.num_guesses = 0
         self.is_alive = True
         self.head = 'O'
-        self.chute = ['    ___',
-                      '  /     \ ',
-                      ' /_______\ ',
-                      ' \       / ',
-                      '  \     /  ',
-                      '   \   /',
-                      f'     {self.head}    ',
-                      '    /|\   ',
+        self.chute = ['    ___\n',
+                      '  /     \ \n',
+                      ' /_______\ \n',
+                      ' \       / \n',
+                      '  \     /  \n',
+                      '   \   /\n',
+                      f'     {self.head}    \n',
+                      '    /|\   \n',
                       '    / \   ']
+        self.displayed_chute = ''.join(self.chute)
 
     def update_chute(self, result):
         """
@@ -42,21 +41,27 @@ class Jumper():
             chute (list): each line of the chute
 
         """
-        self.num_guesses += 1
-        if self.num_guesses > 6:
-            self.is_alive = False
+        
+        
+        
 
         # TODO: If result is True, the chute doesn't change. If result is Fale, the chute is reduced by one line.
         if result == False:
             self.chute.pop(0)
+            self.num_guesses += 1
+
+        if self.num_guesses > 6:
+            self.is_alive = False
 
         # TODO: If is_alive is True, self.head = 'O', otherwise, self.head = 'X'
         if self.is_alive == False:
-            self.chute[-3] = '     X    '
+            self.head = 'x'
+            self.chute.insert(0,f'     {self.head}    \n')
 
         # This is being used right now just to test the chute display
         # for line in self.chute:
         #     print(line)
+        self.displayed_chute = ''.join(self.chute)
 
         return self.chute
 
