@@ -45,15 +45,16 @@ class Jumper():
         
         
 
-        # TODO: If result is True, the chute doesn't change. If result is Fale, the chute is reduced by one line.
+        # If result is True, the chute doesn't change. If result is Fale, the chute is reduced by one line.
         if result == False:
             self.chute.pop(0)
             self.num_guesses += 1
 
+        # If the number of guesses excedes 6, the jumper dies
         if self.num_guesses > 6:
             self.is_alive = False
 
-        # TODO: If is_alive is True, self.head = 'O', otherwise, self.head = 'X'
+        # If is_alive is True, self.head = 'O', otherwise, self.head = 'X'
         if self.is_alive == False:
             self.head = 'x'
             self.chute.insert(0,f'     {self.head}    \n')
