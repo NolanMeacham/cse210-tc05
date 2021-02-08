@@ -18,7 +18,8 @@ class Director:
         self.keep_playing = True
         self.play_again = True
         self.jumper = Jumper()
-        self.word_processor = Word_processor
+        self.word_processor = Word_processor()
+        self.console = Console()
 
     def start_game(self):
         """
@@ -35,9 +36,9 @@ class Director:
         Asks the user input
         """
         
-        dashes = self.word_processor.set_hidden_word
+        dashes = self.word_processor.set_hidden_word()
         self.console.write(dashes)
-        jumper = update_chute()
+        jumper = self.jumper.update_chute()
         
         self.console.write('')
         self.console.write('---------------')
@@ -52,7 +53,7 @@ class Director:
 
         """
         self.word_processor.check_input(self.letter)
-        if self.word_processor.check_complete == True:
+        if self.word_processor.check_complete():
             self.console.write("Thanks for playing!")
             self.keep_playing == False
         
