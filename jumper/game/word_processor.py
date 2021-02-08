@@ -20,7 +20,7 @@ class Word_Processor:
         self.word_choice = words[random.randint(0,999)]
         self.word_choice = self.word_choice[:-1]
         self.temp_word = self.word_choice
-        return self.word_choice
+        
 
 
     """
@@ -75,18 +75,5 @@ class Word_Processor:
         self.hidden_word = hidden_word
 
 
-#test = Word_Processor()
-#test.get_word()
-#test.set_hidden_word(test.word_choice)
-#print(f"""
-#Choice: {test.word_choice}
-#Hidden: {test.hidden_word}
-#Temp: {test.temp_word}
-#""")
-#test.check_input("t")
-#print(f"""
-#Choice: {test.word_choice}
-#Hidden: {test.hidden_word}
-#Temp: {test.temp_word}
-#""")
+
 
