@@ -1,4 +1,4 @@
-
+import webbrowser as w
 
 class Console:
     """A code template for a computer console. The responsibility of this
@@ -43,3 +43,8 @@ class Console:
             text (string): The text to display.
         """
         print(text)
+
+    def google_word(self, word):
+        choice = input(f'Did you want to google {word}?\nIt could save a life next time!\n(Y)/(N):')
+        if choice.lower() == 'y':
+            w.open(f'https://www.google.com/search?q={word}', new=2)
